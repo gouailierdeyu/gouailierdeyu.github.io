@@ -20,22 +20,19 @@
     var CONFIG = {"hostname":"blog.canerme.cn","root":"/","scheme":"Gemini","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"flat"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="二进制安全的String类型 二进制安全是指，在传输数据时，保证二进制数据的信息安全，也就是不被篡改、破译等，如果被攻击，能够及时检测出来。 有的程序会将某些特殊的二进制串作为标志符，如果二进制数据里面恰好就包含了这种标志符，那么程序要能够正确识别解析二进制文件，而不是出错。 二进制安全包含了密码学的一些东西，比如加解密、签名等。">
+  <meta name="description" content="Vue易错点  Vue中的mixins(混合) mixins混合是组件可复用的一种方式，一个组件可以混合来使用其他的任意组件。 对于同名的生命周期函数，总是先调用混合组件的生命周期函数，再调用自身的生命周期函数。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="二进制安全的String类型">
-<meta property="og:url" content="http://blog.canerme.cn/2020/07/20/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B/index.html">
+<meta property="og:title" content="Vue易错点">
+<meta property="og:url" content="http://blog.canerme.cn/2020/03/01/Vue%E6%98%93%E9%94%99%E7%82%B9/index.html">
 <meta property="og:site_name" content="夠愛梨兒的雨">
-<meta property="og:description" content="二进制安全的String类型 二进制安全是指，在传输数据时，保证二进制数据的信息安全，也就是不被篡改、破译等，如果被攻击，能够及时检测出来。 有的程序会将某些特殊的二进制串作为标志符，如果二进制数据里面恰好就包含了这种标志符，那么程序要能够正确识别解析二进制文件，而不是出错。 二进制安全包含了密码学的一些东西，比如加解密、签名等。">
+<meta property="og:description" content="Vue易错点  Vue中的mixins(混合) mixins混合是组件可复用的一种方式，一个组件可以混合来使用其他的任意组件。 对于同名的生命周期函数，总是先调用混合组件的生命周期函数，再调用自身的生命周期函数。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.canerme.cn/.cn//%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B%5C20170526153246806.png">
-<meta property="og:image" content="http://blog.canerme.cn/.cn//%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B%5CSDS.png">
-<meta property="article:published_time" content="2020-07-20T03:45:00.000Z">
-<meta property="article:modified_time" content="2021-01-10T12:42:01.012Z">
+<meta property="article:published_time" content="2020-03-01T13:19:51.000Z">
+<meta property="article:modified_time" content="2021-01-10T14:06:56.750Z">
 <meta property="article:author" content="CzhengYu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.canerme.cn/.cn//%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B%5C20170526153246806.png">
 
-<link rel="canonical" href="http://blog.canerme.cn/2020/07/20/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B/">
+<link rel="canonical" href="http://blog.canerme.cn/2020/03/01/Vue%E6%98%93%E9%94%99%E7%82%B9/">
 
 
 <script id="page-configurations">
@@ -47,7 +44,7 @@
   };
 </script>
 
-  <title>二进制安全的String类型 | 夠愛梨兒的雨</title>
+  <title>Vue易错点 | 夠愛梨兒的雨</title>
   
 
 
@@ -158,7 +155,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://blog.canerme.cn/2020/07/20/%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B/">
+    <link itemprop="mainEntityOfPage" href="http://blog.canerme.cn/2020/03/01/Vue%E6%98%93%E9%94%99%E7%82%B9/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/touxiang.jpg">
@@ -171,7 +168,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          二进制安全的String类型
+          Vue易错点
         </h1>
 
         <div class="post-meta">
@@ -181,14 +178,14 @@
               </span>
               <span class="post-meta-item-text">发表于</span>
 
-              <time title="创建时间：2020-07-20 11:45:00" itemprop="dateCreated datePublished" datetime="2020-07-20T11:45:00+08:00">2020-07-20</time>
+              <time title="创建时间：2020-03-01 21:19:51" itemprop="dateCreated datePublished" datetime="2020-03-01T21:19:51+08:00">2020-03-01</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-10 20:42:01" itemprop="dateModified" datetime="2021-01-10T20:42:01+08:00">2021-01-10</time>
+                <time title="修改时间：2021-01-10 22:06:56" itemprop="dateModified" datetime="2021-01-10T22:06:56+08:00">2021-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -196,7 +193,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/java/" itemprop="url" rel="index"><span itemprop="name">java</span></a>
+                  <a href="/categories/Springboot%E6%8A%80%E6%9C%AF%E6%A0%88/" itemprop="url" rel="index"><span itemprop="name">Springboot技术栈</span></a>
                 </span>
             </span>
 
@@ -218,27 +215,34 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="二进制安全的string类型"><a class="markdownIt-Anchor" href="#二进制安全的string类型"></a> 二进制安全的String类型</h1>
-<p>二进制安全是指，在传输数据时，保证二进制数据的信息安全，也就是不被篡改、破译等，如果被攻击，能够及时检测出来。<br>
-有的程序会将某些特殊的二进制串作为标志符，如果二进制数据里面恰好就包含了这种标志符，那么程序要能够正确识别解析二进制文件，而不是出错。<br>
-二进制安全包含了密码学的一些东西，比如加解密、签名等。</p>
-<a id="more"></a>  
-<p>举个例子，你把数据11110000加密成10001000，然后传给我，就是一种二进制安全的做法。</p>
-<p>c/c++以‘\0’（ACII编码成二进制就是0）作为字符串结束符就不是二进制安全的。<br>
-<img src="/.cn//%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B%5C20170526153246806.png" alt></p>
-<p>C字符串所用的函数只会识别出其中的&quot;Redis&quot;，而忽略之后的&quot;Cluster&quot;。</p>
-<p>Redis中使用SDS来保存之前提到的特殊数据格式就没有任何问题，因为SDS使用len属性的值而不是空字符来判断字符串是否结束，如图所示：</p>
-<p><img src="/.cn//%E4%BA%8C%E8%BF%9B%E5%88%B6%E5%AE%89%E5%85%A8%E7%9A%84String%E7%B1%BB%E5%9E%8B%5CSDS.png" alt></p>
-<pre><code>struct sdshdr
- {
-    int len;//记录buf数组大小
-    int free;//记录buf数组还有多少可用空间
-    char buf[];//字符串实体，保存字符串的内容
-  };
-</code></pre>
-<p>sdshdr是一个类型。包含数据free和len。len表示字符串长度，free表示len表示的长度减去真实存储在buf中的长度。</p>
-<p>java字符串String是二进制安全的。</p>
-<p>java中JDK8在编译时将源代码和String字符串编译为UTF16的编码，JDK11中的String引入了压缩编码，可指定编码为LATIN1或者UTF16.</p>
+        <h1 id="vue易错点"><a class="markdownIt-Anchor" href="#vue易错点"></a> Vue易错点</h1>
+<h3 id="vue中的mixins混合"><a class="markdownIt-Anchor" href="#vue中的mixins混合"></a> Vue中的mixins(混合)</h3>
+<p>mixins混合是组件可复用的一种方式，一个组件可以混合来使用其他的任意组件。<br>
+对于同名的生命周期函数，总是先调用混合组件的生命周期函数，再调用自身的生命周期函数。</p>
+<a id="more"></a>
+<p>当本身组件和混合的组件含有同名的<code>methods</code>, <code>data</code>,<code>components</code> 和 <code>directives</code>对象时，在本身组件调用同名方法时，会调用本身组件的方法。</p>
+<p><strong>组件的data</strong>必须是一个函数，而不能是键值对。因为如果是键值对的话，当实例化多个组件的对象后，它们会共享所有的相同的数据对象。当某个实例对象修改了它的数据，其他的实例对象数据也会被修改。如果是函数的话，就会每个实例对象生成自己的数据。<br>
+正确定义：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// In a .vue file </span></span><br><span class="line"> <span class="keyword">export</span>  <span class="keyword">default</span> </span><br><span class="line"> &#123; </span><br><span class="line"> data : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="vue模板组件中key属性"><a class="markdownIt-Anchor" href="#vue模板组件中key属性"></a> Vue模板组件中key属性</h3>
+<p>对于可复用情况下，如<code>v-if</code> 和<code>v-else</code>渲染的模板，元素。</p>
+<p>Vue 会尽可能高效地渲染元素，通常会<strong>复用已有元素</strong>而不是从头开始渲染。比如<strong>在同一个地方切换模板元素</strong>，模板中已有的html元素会复用，只是<strong>对于多个元素改变元素中的不同的地方</strong>。</p>
+<p>所以如果不想复用（比如模板中input输入框不同显示）。在html元素上添加一个<strong>具有唯一值</strong>的 <code>key</code> 属性，表达“这两个元素是完全独立的，不要复用它们”。每次切换时，元素都将被重新渲染。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-if</span>=<span class="string">"loginType === 'username'"</span>&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>Username<span class="tag">&lt;/<span class="name">label</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Enter your username"</span> <span class="attr">key</span>=<span class="string">"username-input"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">template</span> <span class="attr">v-else</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">label</span>&gt;</span>Email<span class="tag">&lt;/<span class="name">label</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">placeholder</span>=<span class="string">"Enter your email address"</span> <span class="attr">key</span>=<span class="string">"email-input"</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;/<span class="name">template</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="vue中的v-model"><a class="markdownIt-Anchor" href="#vue中的v-model"></a> Vue中的v-model</h3>
+<p><code>v-model</code> 指令在表单 <code>&lt;input&gt;</code>、<code>&lt;textarea&gt;</code> 及 <code>&lt;select&gt;</code> 元素上创建双向数据绑定。</p>
+<blockquote>
+<p><code>v-model</code> 会忽略所有表单元素的 <code>value</code>、<code>checked</code>、<code>selected</code> attribute 的初始值而总是将 <strong>Vue 实例的数据作为数据来源</strong>。你应该通过 JavaScript 在组件的 <code>data</code> 选项中声明初始值。</p>
+</blockquote>
+<h3 id="动态切换组件"><a class="markdownIt-Anchor" href="#动态切换组件"></a> 动态切换组件</h3>
+<p>通过 Vue 的  <code>&lt;component&gt;</code>  元素加一个特殊的  <code>is</code>  attribute 可以<strong>切换组件</strong>：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- 组件会在 <span class="string">`currentTabComponent`</span> 改变时改变 --&gt;</span><br><span class="line">&lt;component v-bind:is=<span class="string">"currentTabComponent"</span>&gt;&lt;<span class="regexp">/component&gt;</span></span><br></pre></td></tr></table></figure>
+<p>如：<code>currentTabComponent</code>  可以包括</p>
+<ul>
+<li>已注册组件的名字，或</li>
+<li>一个组件的选项对象<br>
+通过改变<code>currentTabComponent</code>来切换组件。</li>
+</ul>
 
     </div>
 
@@ -274,12 +278,12 @@
         
     <div class="post-nav">
       <div class="post-nav-item">
-    <a href="/2020/06/10/java%E5%9B%9B%E7%A7%8D%E5%BC%95%E7%94%A8/" rel="prev" title="java四种引用">
-      <i class="fa fa-chevron-left"></i> java四种引用
+    <a href="/2020/02/10/mybatis%E5%AD%A6%E4%B9%A0/" rel="prev" title="mybatis学习">
+      <i class="fa fa-chevron-left"></i> mybatis学习
     </a></div>
       <div class="post-nav-item">
-    <a href="/2020/09/10/HTTP%E5%92%8CHTTPS/" rel="next" title="HTTP和HTTPS">
-      HTTP和HTTPS <i class="fa fa-chevron-right"></i>
+    <a href="/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/" rel="next" title="Springboot学习">
+      Springboot学习 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -340,7 +344,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#二进制安全的string类型"><span class="nav-number">1.</span> <span class="nav-text"> 二进制安全的String类型</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#vue易错点"><span class="nav-number">1.</span> <span class="nav-text"> Vue易错点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#vue中的mixins混合"><span class="nav-number">1.0.1.</span> <span class="nav-text"> Vue中的mixins(混合)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue模板组件中key属性"><span class="nav-number">1.0.2.</span> <span class="nav-text"> Vue模板组件中key属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#vue中的v-model"><span class="nav-number">1.0.3.</span> <span class="nav-text"> Vue中的v-model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#动态切换组件"><span class="nav-number">1.0.4.</span> <span class="nav-text"> 动态切换组件</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

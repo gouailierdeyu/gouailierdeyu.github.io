@@ -27,10 +27,12 @@
 <meta property="og:site_name" content="夠愛梨兒的雨">
 <meta property="og:description" content="SpringApplication位于项目根包的原因 在SpringBoot主类上有@SpringBootApplication注解，而这个注解由三个注解组成，分别是：@SpringBootConfiguration，@ComonentScan，@EnableAutoConfiguration。 @ComponentScan注解有个特性：如果不指定需要扫描的包或者需要注册的类，则默认是扫描该使用">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.canerme.cn/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
 <meta property="article:published_time" content="2020-03-15T04:12:57.000Z">
-<meta property="article:modified_time" content="2020-03-17T14:31:25.347Z">
+<meta property="article:modified_time" content="2021-01-10T13:06:19.167Z">
 <meta property="article:author" content="CzhengYu">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.canerme.cn/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
 
 <link rel="canonical" href="http://blog.canerme.cn/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/">
 
@@ -119,12 +121,12 @@
   </li>
         <li class="menu-item menu-item-categories">
 
-    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">4</span></a>
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类<span class="badge">6</span></a>
 
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档<span class="badge">14</span></a>
 
   </li>
         <li class="menu-item menu-item-about">
@@ -185,7 +187,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-03-17 22:31:25" itemprop="dateModified" datetime="2020-03-17T22:31:25+08:00">2020-03-17</time>
+                <time title="修改时间：2021-01-10 21:06:19" itemprop="dateModified" datetime="2021-01-10T21:06:19+08:00">2021-01-10</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -193,7 +195,7 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Springboot/" itemprop="url" rel="index"><span itemprop="name">Springboot</span></a>
+                  <a href="/categories/Springboot%E6%8A%80%E6%9C%AF%E6%A0%88/" itemprop="url" rel="index"><span itemprop="name">Springboot技术栈</span></a>
                 </span>
             </span>
 
@@ -219,14 +221,14 @@
 <p>在<code>SpringBoot</code>主类上有<code>@SpringBootApplication</code>注解，而这个注解由三个注解组成，分别是：<code>@SpringBootConfiguration</code>，<code>@ComonentScan</code>，<code>@EnableAutoConfiguration</code>。<br>
 <code>@ComponentScan</code>注解有个特性：如果不指定需要扫描的包或者需要注册的类，则默认是扫描该使用<code>@ComponentScan</code>注解的<strong>类所在的包以及子包</strong>，所以将使用了<code>@SpringBootApplication</code>注解的包含<code>main</code>方法的启动类放在<strong>项目根包</strong>，则会扫描项目的所有包。<br>
 除了<code>@ComponentScan</code>注解之外，<code>@EnableAutoConfiguration</code>注解也是扫描使用了这个注解的类所在的包及其子包，故放在<strong>项目根包</strong>，则可以扫描项目所有的包，对所有的类（具体为使用Spring容器管理的）进行检测，从而决定是否需要自动创建功能组件类的<code>bean</code>对象到<code>spring</code>的<code>IOC</code>容器中。</p>
-<a id="more"></a>
+<a id="more"></a>  
 <p>所以Main主类也一定要在一个包里面，不然就没有包和子包的说法，这些扫描注解就不会成功扫描到相应的类。</p>
 <h2 id="springboot配置自定义配置文件xxxproperties"><a class="markdownIt-Anchor" href="#springboot配置自定义配置文件xxxproperties"></a> Springboot配置自定义配置文件(xxx.properties)</h2>
 <p>一：首先几乎所有配置都可以写到<code>application.peroperties</code>文件中，这个文件会被SpringBoot自动加载，不用手动去加载。自定义的配置属性可以通过<code>@Value(&quot;${}&quot;)</code>进行配置。</p>
 <p>二：<br>
 2.1 如果自定义某个<code>xxx.properties</code>配置文件，则首先用<code>@PropertySource(&quot;path/xxx.properties&quot;)</code>加载配置文件，然后在通过<code>@Value(&quot;${xxx}&quot;)</code>获取配置值。</p>
 <p>2.2 还可以使用：</p>
-<pre><code>@Configuration
+<pre><code>@Component
 @PropertySource(&quot;path/xxx.properties&quot;) 
 @ConfigurationProperties(prefix=&quot;platform&quot;)
 public class Platform{}
@@ -237,6 +239,34 @@ public class Platform{}
 </code></pre>
 <p>是为了和<code>@ConfigurationProperties(prefix=&quot;platform&quot;)</code>配合使用，然后通过<code>@Autowired</code>注入配置类<code>JavaBean</code>。</p>
 <p>千万不要在公共配置文件<code>application.properties</code>和自定义配置文件<code>xxx.properties</code>中配置相同的的配置项的不同值，因为<strong>公共配置文件的优先权最高</strong>，会覆盖掉自定义配置文件中的内容。</p>
+<h3 id="enablewebmvcwebmvcconfigurationsupportwebmvcconfigurer和webmvcconfigurationadapter区别"><a class="markdownIt-Anchor" href="#enablewebmvcwebmvcconfigurationsupportwebmvcconfigurer和webmvcconfigurationadapter区别"></a> <code>@EnableWebMvc</code>,<code>WebMvcConfigurationSupport</code>,<code>WebMvcConfigurer</code>和<code>WebMvcConfigurationAdapter</code>区别</h3>
+<p>如果有配置文件类中继承了<code>DelegatingWebMvcConfiguration</code>，或者<code>WebMvcConfigurationSupport</code>，或者配置文件类有注解<code>@EnableWebMvc</code>，那么在<code>@SpringBootApplication</code>注解中的<code>@EnableAutoConfiguration</code> 中的<code>WebMvcAutoConfiguration</code> 将不会被自动配置，而是使用继承了<code>WebMvcConfigurationSupport</code>的自定义类的配置来覆盖自动配置。也就是说，springboot自动配置的MVC或者在application.properties中配置的MVC内容都会失效，必须在自定义类中重新实现。</p>
+<p><code>WebMvcConfigurationAdapter</code>在<code>SpringBoot2.x</code>中已经废弃，最好用<code>implements WebMvcConfigurer</code>代替，使用<code>WebMvcConfigurer</code>不会覆盖掉<code>WebMvcAutoConfiguration</code>类的自动配置，<code>SpringBoot</code>自动配置的MVC或者在application.properties中配置的MVC内容不会失效，只需要在自定义类中实现需要的配置函数即可。</p>
+<h2 id="spring中的beanfactory和factorybean"><a class="markdownIt-Anchor" href="#spring中的beanfactory和factorybean"></a> Spring中的BeanFactory和FactoryBean</h2>
+<p>BeanFactory是一个工厂接口，是IOC容器的根本接口。用于管理Bean,实例化Bean,判断Bean是否是单例，判断IOC容器中是否包含指定Bean.<br>
+FactoryBean顾名思义是“生产Bean”。是一个Bean。一个交给容器去管理的bean。这个Bean不是简单的Bean，而是一个能生产或者修饰对象生成的工厂Bean。在容器中，使用getBean(“id“),是获取的工厂Bean中getObject()方法返回的Bean；使用getBean(”&amp;id“)，才是返回这个工厂Bean。<br>
+如下是BeanFactory ，IOC容器</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">BeanFactory</span> </span>&#123;</span><br><span class="line">    String FACTORY_BEAN_PREFIX = <span class="string">"&amp;"</span>;</span><br><span class="line">    <span class="comment">//标识有”&amp;“表示获取到工厂Bean,没有&amp;表示获取到工厂Bean,生产的bean.</span></span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String var1)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(String var1, Class&lt;T&gt; var2)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function">Object <span class="title">getBean</span><span class="params">(String var1, Object... var2)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; var1)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">T <span class="title">getBean</span><span class="params">(Class&lt;T&gt; var1, Object... var2)</span> <span class="keyword">throws</span> BeansException</span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">ObjectProvider&lt;T&gt; <span class="title">getBeanProvider</span><span class="params">(Class&lt;T&gt; var1)</span></span>;</span><br><span class="line"></span><br><span class="line">    &lt;T&gt; <span class="function">ObjectProvider&lt;T&gt; <span class="title">getBeanProvider</span><span class="params">(ResolvableType var1)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">containsBean</span><span class="params">(String var1)</span></span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">(String var1)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isPrototype</span><span class="params">(String var1)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isTypeMatch</span><span class="params">(String var1, ResolvableType var2)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">boolean</span> <span class="title">isTypeMatch</span><span class="params">(String var1, Class&lt;?&gt; var2)</span> <span class="keyword">throws</span> NoSuchBeanDefinitionException</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    Class&lt;?&gt; getType(String var1) <span class="keyword">throws</span> NoSuchBeanDefinitionException;</span><br><span class="line"></span><br><span class="line">    String[] getAliases(String var1);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>如下是FactoryBean，是一个可以生产Bean的工厂Bean.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">FactoryBean</span>&lt;<span class="title">T</span>&gt; </span>&#123;</span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    <span class="function">T <span class="title">getObject</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span>;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Nullable</span></span><br><span class="line">    Class&lt;?&gt; getObjectType();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">default</span> <span class="keyword">boolean</span> <span class="title">isSingleton</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="beanfactory和applicationcontext区别以及scope"><a class="markdownIt-Anchor" href="#beanfactory和applicationcontext区别以及scope"></a> BeanFactory和ApplicationContext区别以及Scope</h2>
+<p>Spring中可以定义Bean的作用域（Scope）,Bean有三种作用域：</p>
+<ol>
+<li>singleton,单例模式，每次获取的都是同一个实例；</li>
+<li>prototype,每次注入和getBean()会创建一个新的实例；</li>
+<li>Web作用域，分为request和session和global session. request每个HTTP请求创建它自有的一个Bean实例，仅在Web相关的ApplicationContext中生效;session每个HTTP会话创建一个实例，仅在Web相关的ApplicationContext中生效;global session每个全局的HTTP会话创建一个实例。一般仅在porlet上下文中用生效。同时仅在Web相关的ApplicationContext中生效。</li>
+</ol>
+<p>使用BeanFactory作为Spring Bean的工厂类，则所有的bean都是在第一次使用该Bean的时候实例化 （不管bean是否实现了FactoryBean）<br>
+如果你使用ApplicationContext作为Spring Bean的工厂类，则又分为以下几种情况：<br>
+（1）：如果bean的scope是singleton的，并且lazy-init为false（默认是false，所以可以不用设置），则ApplicationContext启动的时候就实例化该Bean，并且将实例化的Bean放在一个map结构的缓存中，下次再使用该Bean的时候，直接从这个缓存中取 （但是如果bean实现了FactoryBean，则ApplicationContext启动的时候先实例化对应的FactoryBean，当第一次使用bean的时候，在通过FactoryBean的getObject方法实例化bean）<br>
+（2）：如果bean的scope是singleton的，并且lazy-init为true，则该Bean的实例化是在第一次使用该Bean的时候进行实例化<br>
+（3）：如果bean的scope是prototype的，则该Bean的实例化是在第一次使用该Bean的时候进行实例化</p>
+<h2 id="spring配合lombok注入"><a class="markdownIt-Anchor" href="#spring配合lombok注入"></a> Spring配合Lombok注入</h2>
+<p>@RequiredArgsConstructor(onConstructor =@_(@Autowired)) 可以注入private finall类型的变量。注意：必须是private finall或者@NonNull类型修饰的变量。</p>
+<h2 id="spring中configuration的作用"><a class="markdownIt-Anchor" href="#spring中configuration的作用"></a> Spring中@Configuration的作用</h2>
+<p>@Configuration会对注解的类进行动态代理，不加@Configuration，不会对配置类动态代理，在@Bean的方法中，如何多次调用方法，就会多次执行，代理之后，会拦截方法导致方法只会执行一次。<br>
+<img src="/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md" alt><br>
+加上@Configuration 图中userService()方法只会执行一次，因为整个类被cglib代理了，拦截了每个方法。</p>
 
     </div>
 
@@ -271,7 +301,10 @@ public class Platform{}
 
         
     <div class="post-nav">
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/2020/03/01/Vue%E6%98%93%E9%94%99%E7%82%B9/" rel="prev" title="Vue易错点">
+      <i class="fa fa-chevron-left"></i> Vue易错点
+    </a></div>
       <div class="post-nav-item">
     <a href="/2020/03/17/rnn%E7%90%86%E8%A7%A3/" rel="next" title="RNN理解">
       RNN理解 <i class="fa fa-chevron-right"></i>
@@ -335,7 +368,7 @@ public class Platform{}
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#springapplication位于项目根包的原因"><span class="nav-number">1.</span> <span class="nav-text"> SpringApplication位于项目根包的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springboot配置自定义配置文件xxxproperties"><span class="nav-number">2.</span> <span class="nav-text"> Springboot配置自定义配置文件(xxx.properties)</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#springapplication位于项目根包的原因"><span class="nav-number">1.</span> <span class="nav-text"> SpringApplication位于项目根包的原因</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#springboot配置自定义配置文件xxxproperties"><span class="nav-number">2.</span> <span class="nav-text"> Springboot配置自定义配置文件(xxx.properties)</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#enablewebmvcwebmvcconfigurationsupportwebmvcconfigurer和webmvcconfigurationadapter区别"><span class="nav-number">2.1.</span> <span class="nav-text"> @EnableWebMvc,WebMvcConfigurationSupport,WebMvcConfigurer和WebMvcConfigurationAdapter区别</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring中的beanfactory和factorybean"><span class="nav-number">3.</span> <span class="nav-text"> Spring中的BeanFactory和FactoryBean</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#beanfactory和applicationcontext区别以及scope"><span class="nav-number">4.</span> <span class="nav-text"> BeanFactory和ApplicationContext区别以及Scope</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring配合lombok注入"><span class="nav-number">5.</span> <span class="nav-text"> Spring配合Lombok注入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#spring中configuration的作用"><span class="nav-number">6.</span> <span class="nav-text"> Spring中@Configuration的作用</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -352,14 +385,14 @@ public class Platform{}
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">14</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
             <a href="/categories/">
           
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">分类</span></a>
       </div>
   </nav>
