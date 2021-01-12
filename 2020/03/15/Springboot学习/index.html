@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="夠愛梨兒的雨">
 <meta property="og:description" content="SpringApplication位于项目根包的原因 在SpringBoot主类上有@SpringBootApplication注解，而这个注解由三个注解组成，分别是：@SpringBootConfiguration，@ComonentScan，@EnableAutoConfiguration。 @ComponentScan注解有个特性：如果不指定需要扫描的包或者需要注册的类，则默认是扫描该使用">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.canerme.cn/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
+<meta property="og:image" content="http://blog.canerme.cn/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
 <meta property="article:published_time" content="2020-03-15T04:12:57.000Z">
 <meta property="article:modified_time" content="2021-01-10T13:06:19.167Z">
 <meta property="article:author" content="CzhengYu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.canerme.cn/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
+<meta name="twitter:image" content="http://blog.canerme.cn/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md">
 
 <link rel="canonical" href="http://blog.canerme.cn/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/">
 
@@ -265,7 +265,7 @@ FactoryBean顾名思义是“生产Bean”。是一个Bean。一个交给容器�
 <p>@RequiredArgsConstructor(onConstructor =@_(@Autowired)) 可以注入private finall类型的变量。注意：必须是private finall或者@NonNull类型修饰的变量。</p>
 <h2 id="spring中configuration的作用"><a class="markdownIt-Anchor" href="#spring中configuration的作用"></a> Spring中@Configuration的作用</h2>
 <p>@Configuration会对注解的类进行动态代理，不加@Configuration，不会对配置类动态代理，在@Bean的方法中，如何多次调用方法，就会多次执行，代理之后，会拦截方法导致方法只会执行一次。<br>
-<img src="/.cn//Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md" alt><br>
+<img src="/2020/03/15/Springboot%E5%AD%A6%E4%B9%A0/Springboot%E5%AD%A6%E4%B9%A0%5CSpringboot%E5%AD%A6%E4%B9%A0.md" alt><br>
 加上@Configuration 图中userService()方法只会执行一次，因为整个类被cglib代理了，拦截了每个方法。</p>
 
     </div>

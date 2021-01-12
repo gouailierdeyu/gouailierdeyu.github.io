@@ -27,12 +27,12 @@
 <meta property="og:site_name" content="夠愛梨兒的雨">
 <meta property="og:description" content="java main函数 c&#x2F;c++的main函数以int类型返回，是需要编译器或者第三方调用程序来判断程序是否正常退出。 java的main函数是void类型的，因为有JVM帮助处理善后事宜，程序异常退出会由JVM来处理，当然Java可以调用System.exit(0)来显示退出。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.canerme.cn/.cn//java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png">
+<meta property="og:image" content="http://blog.canerme.cn/2020/05/20/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png">
 <meta property="article:published_time" content="2020-05-20T09:35:00.000Z">
 <meta property="article:modified_time" content="2021-01-12T06:57:34.970Z">
 <meta property="article:author" content="CzhengYu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.canerme.cn/.cn//java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png">
+<meta name="twitter:image" content="http://blog.canerme.cn/2020/05/20/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png">
 
 <link rel="canonical" href="http://blog.canerme.cn/2020/05/20/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/">
 
@@ -270,7 +270,7 @@ Jvm内存模型和线程了，<code>因为实例变量存在堆中，而局部�
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">List&lt;?&gt; list 可以赋值任何类型，但是不能通过add()添加具体的类型</span><br><span class="line"></span><br><span class="line">List&lt;Object&gt; list 只能赋值List&lt;Object&gt;，但是可以add()添加任何类型  </span><br><span class="line"></span><br><span class="line">List&lt;?extends  Object&gt; list 与 List&lt;?&gt; list用法没区别</span><br></pre></td></tr></table></figure>
 <p>有泛型限定符（extends/super）的容器，<strong>上界不能存入 下界不能取出</strong></p>
-<p><img src="/.cn//java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png" alt="image-20210105105035962"></p>
+<p><img src="/2020/05/20/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0/java%E5%9F%BA%E7%A1%80%E5%AD%A6%E4%B9%A0%5Cimage-20210105105035962.png" alt="image-20210105105035962"></p>
 <p>可重构类型是指那些在编译时未被擦除的类型。换句话说，一个不可重构类型，运行时将比编译时表达的信息更少，因为其中一些信息会被擦除。<br>
 无界通配符类型。也就是说， <code>List&lt;?&gt;</code> 以及 <code>Map&lt;?, ?&gt;</code> 是可重写的。<br>
 <code>List&lt;? extends Object&gt;</code> 不可重写</p>
