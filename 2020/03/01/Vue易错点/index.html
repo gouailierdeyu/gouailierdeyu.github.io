@@ -217,11 +217,11 @@
       
         <h1 id="vue易错点"><a class="markdownIt-Anchor" href="#vue易错点"></a> Vue易错点</h1>
 <h3 id="vue中的mixins混合"><a class="markdownIt-Anchor" href="#vue中的mixins混合"></a> Vue中的mixins(混合)</h3>
-<p>mixins混合是组件可复用的一种方式，一个组件可以混合来使用其他的任意组件。<br>
+<p>mixins混合是组件可复用的一种方式，一个组件可以混合来使用其他的任意组件。<br />
 对于同名的生命周期函数，总是先调用混合组件的生命周期函数，再调用自身的生命周期函数。</p>
 <a id="more"></a>
 <p>当本身组件和混合的组件含有同名的<code>methods</code>, <code>data</code>,<code>components</code> 和 <code>directives</code>对象时，在本身组件调用同名方法时，会调用本身组件的方法。</p>
-<p><strong>组件的data</strong>必须是一个函数，而不能是键值对。因为如果是键值对的话，当实例化多个组件的对象后，它们会共享所有的相同的数据对象。当某个实例对象修改了它的数据，其他的实例对象数据也会被修改。如果是函数的话，就会每个实例对象生成自己的数据。<br>
+<p><strong>组件的data</strong>必须是一个函数，而不能是键值对。因为如果是键值对的话，当实例化多个组件的对象后，它们会共享所有的相同的数据对象。当某个实例对象修改了它的数据，其他的实例对象数据也会被修改。如果是函数的话，就会每个实例对象生成自己的数据。<br />
 正确定义：</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// In a .vue file </span></span><br><span class="line"> <span class="keyword">export</span>  <span class="keyword">default</span> </span><br><span class="line"> &#123; </span><br><span class="line"> data : <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </span><br><span class="line">      <span class="keyword">return</span> &#123; <span class="attr">foo</span>: <span class="string">'bar'</span> &#125;</span><br><span class="line">  &#125; </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <h3 id="vue模板组件中key属性"><a class="markdownIt-Anchor" href="#vue模板组件中key属性"></a> Vue模板组件中key属性</h3>
@@ -240,7 +240,7 @@
 <p>如：<code>currentTabComponent</code>  可以包括</p>
 <ul>
 <li>已注册组件的名字，或</li>
-<li>一个组件的选项对象<br>
+<li>一个组件的选项对象<br />
 通过改变<code>currentTabComponent</code>来切换组件。</li>
 </ul>
 

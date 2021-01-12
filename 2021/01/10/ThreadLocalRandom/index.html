@@ -217,7 +217,7 @@
 </ul>
 <a id="more"></a>
 <p>其中，第二步的算法是固定的，如果每个线程并发地获取同样的 <code>seed</code>，那么得到的随机数也是一样的。为了避免这种情况，<code>Random</code> 使用 CAS 操作保证每次只有一个线程可以获取并更新 seed，失败的线程则需要自旋重试。</p>
-<p><code>ThreadLocalRandom</code>，在多线程下，它为每个线程维护一个 <code>seed</code> 变量，这样就不用竞争了。<br>
+<p><code>ThreadLocalRandom</code>，在多线程下，它为每个线程维护一个 <code>seed</code> 变量，这样就不用竞争了。<br />
 在多线程下，在每个需要随机数的地方直接调用<code>ThreadLocalRandom.current().nextInt(rand);</code>不然还是会有随机数相同的问题。</p>
 
     </div>

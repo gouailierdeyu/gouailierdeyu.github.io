@@ -27,13 +27,13 @@
 <meta property="og:site_name" content="夠愛梨兒的雨">
 <meta property="og:description" content="git操作  git三个分区  三个分区之间的转换通过以上命令进行。工作区就是我们当前的文件目录。">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://blog.canerme.cn/2020/12/12/git%E6%93%8D%E4%BD%9C/git%E6%93%8D%E4%BD%9C%5Cgit%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png">
-<meta property="og:image" content="http://blog.canerme.cn/2020/12/12/git%E6%93%8D%E4%BD%9C/git%E6%93%8D%E4%BD%9C%5Cmerge%E5%86%B2%E7%AA%81.png">
+<meta property="og:image" content="https://chenzhengyu.oss-cn-chengdu.aliyuncs.com/img/git%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png">
+<meta property="og:image" content="https://chenzhengyu.oss-cn-chengdu.aliyuncs.com/img/merge%E5%86%B2%E7%AA%81.png">
 <meta property="article:published_time" content="2020-12-12T03:51:31.000Z">
-<meta property="article:modified_time" content="2021-01-12T07:01:03.431Z">
+<meta property="article:modified_time" content="2021-01-12T08:53:08.246Z">
 <meta property="article:author" content="CzhengYu">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://blog.canerme.cn/2020/12/12/git%E6%93%8D%E4%BD%9C/git%E6%93%8D%E4%BD%9C%5Cgit%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png">
+<meta name="twitter:image" content="https://chenzhengyu.oss-cn-chengdu.aliyuncs.com/img/git%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png">
 
 <link rel="canonical" href="http://blog.canerme.cn/2020/12/12/git%E6%93%8D%E4%BD%9C/">
 
@@ -188,7 +188,7 @@
                   <i class="fa fa-calendar-check-o"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2021-01-12 15:01:03" itemprop="dateModified" datetime="2021-01-12T15:01:03+08:00">2021-01-12</time>
+                <time title="修改时间：2021-01-12 16:53:08" itemprop="dateModified" datetime="2021-01-12T16:53:08+08:00">2021-01-12</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -220,33 +220,33 @@
       
         <h1 id="git操作"><a class="markdownIt-Anchor" href="#git操作"></a> git操作</h1>
 <h3 id="git三个分区"><a class="markdownIt-Anchor" href="#git三个分区"></a> git三个分区</h3>
-<p><img src="/2020/12/12/git%E6%93%8D%E4%BD%9C/git%E6%93%8D%E4%BD%9C%5Cgit%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png" alt="三个分区"><br>
+<p><img src="https://chenzhengyu.oss-cn-chengdu.aliyuncs.com/img/git%E4%B8%89%E5%A4%A7%E5%88%86%E5%8C%BA.png" alt="三个分区" /><br />
 三个分区之间的转换通过以上命令进行。工作区就是我们当前的文件目录。</p>
 <a id="more"></a>
 <h3 id="常用命令"><a class="markdownIt-Anchor" href="#常用命令"></a> 常用命令</h3>
 <p><code>git remote add 仓库命名 git@192.168.1.119:ndshow(仓库地址)</code></p>
-<p><code>git config --global user.name &quot;xxx&quot; # 配置用户名</code><br>
+<p><code>git config --global user.name &quot;xxx&quot; # 配置用户名</code><br />
 <code>git config --global user.email &quot;xxx@xxx.com&quot; # 配置邮件</code></p>
 <p><code>git config --global user.password 'xxx' # 配置密码</code></p>
 <p><code>git branch -m oldName newName # 重命名本地分支</code></p>
 <p><code>git push --delete origin oldName # 删除远程分支</code></p>
 <blockquote>
-<p>.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的，解决方法<br>
+<p>.gitignore只能忽略那些原来没有被track的文件，如果某些文件已经被纳入了版本管理中，则修改.gitignore是无效的，解决方法<br />
 <code>git rm -r --cached .</code>  清空暂存区，重新添加。</p>
 </blockquote>
 <p><code>git diff</code></p>
 <blockquote>
-<p><strong>git diff</strong> 不加任何参数，将工作区（未add的内容）和暂存区进行比较；<br>
-<strong>git diff HEAD</strong>，将工作区与HEAD指针指向的commit进行比较，一般来说我们当前的改动就是在HEAD指向的commit的基础上进行改动；<br>
-<strong>git diff --cached</strong>，将暂存区与仓库当前commit进行比较；<br>
-<strong>git diff dev</strong>，将工作区与目标分支的最新commit进行比较<br>
+<p><strong>git diff</strong> 不加任何参数，将工作区（未add的内容）和暂存区进行比较；<br />
+<strong>git diff HEAD</strong>，将工作区与HEAD指针指向的commit进行比较，一般来说我们当前的改动就是在HEAD指向的commit的基础上进行改动；<br />
+<strong>git diff --cached</strong>，将暂存区与仓库当前commit进行比较；<br />
+<strong>git diff dev</strong>，将工作区与目标分支的最新commit进行比较<br />
 <strong>git diff [commitId_1] [commitId_2]</strong>，将两个commit（id写前4位）进行比较</p>
 </blockquote>
 <p>git commit</p>
 <blockquote>
-<p>commit会在暂存区生成快照，然后推到本地仓库,commit是在HEAD指向的提交上修改。<br>
-<code>git commit --amend</code>，用新提交覆盖前一个提交。旧commit则被抛弃掉<br>
-然后使用<strong>git push --force-with-lease origin main</strong>推送到远程仓库<br>
+<p>commit会在暂存区生成快照，然后推到本地仓库,commit是在HEAD指向的提交上修改。<br />
+<code>git commit --amend</code>，用新提交覆盖前一个提交。旧commit则被抛弃掉<br />
+然后使用<strong>git push --force-with-lease origin main</strong>推送到远程仓库<br />
 GitHub目前不支持git commit --amend去追加修改而保持不增加提交记录。</p>
 </blockquote>
 <p>git checkout</p>
@@ -255,35 +255,35 @@ GitHub目前不支持git commit --amend去追加修改而保持不增加提交�
 </blockquote>
 <p>git reset  使HEAD指向指定的commit.</p>
 <blockquote>
-<p><code>git reset [commitId] --sort</code>，这是最弱的回滚方式，只改变commit信息，不影响暂存区和工作区；<br>
-<code>git reset [commitId]</code>，不携带参数时，默认只回滚暂存区，也就是把指定提交的信息复制到暂存区，但是不影响工作区；<br>
+<p><code>git reset [commitId] --sort</code>，这是最弱的回滚方式，只改变commit信息，不影响暂存区和工作区；<br />
+<code>git reset [commitId]</code>，不携带参数时，默认只回滚暂存区，也就是把指定提交的信息复制到暂存区，但是不影响工作区；<br />
 <code>git reset [commitId] --hard</code>，这种方式将指定commit回滚到工作区和暂存区。</p>
 </blockquote>
 <h3 id="合并"><a class="markdownIt-Anchor" href="#合并"></a> 合并</h3>
-<p><code>git merge [branch]</code> 合并（<strong>将指定分支合并当前分支，注意和git rebase的区别</strong>）有很多中方式，默认会选择最合适的方式，合并是对仓库进行操作。<br>
+<p><code>git merge [branch]</code> 合并（<strong>将指定分支合并当前分支，注意和git rebase的区别</strong>）有很多中方式，默认会选择最合适的方式，合并是对仓库进行操作。<br />
 git merge -s [策略名称] 指定合并策略。</p>
 <blockquote>
-<p>Fast-forward 是最简单的一种合并策略，并两个没有分叉的分支时的默认行为。<br>
+<p>Fast-forward 是最简单的一种合并策略，并两个没有分叉的分支时的默认行为。<br />
 Recursive 是Git在合并两个有分叉的分支时的默认行为。三路合并。</p>
 </blockquote>
-<p>三路合并：将当前分支最新commit和指定分支最新commit合并，是<br>
-1.将当前分支最新commit（A）和指定分支最新commit（B），以及两个分叉分支的最近公共祖先commit（Base）合并；<br>
-2.然后将合并结果拷贝到暂存区和工作区；<br>
+<p>三路合并：将当前分支最新commit和指定分支最新commit合并，是<br />
+1.将当前分支最新commit（A）和指定分支最新commit（B），以及两个分叉分支的最近公共祖先commit（Base）合并；<br />
+2.然后将合并结果拷贝到暂存区和工作区；<br />
 3.然后再产生新的提交，提交的祖先为指定分支和当前分支。</p>
 <p>为什么三路合并？（A和B两个分支最新提交，到底是A修改了B还是B修改了A？因此需要三路合并）</p>
 <p>比较：如果A和Base内容相同，那么说明B修改了，因此合并后是B。</p>
-<p>冲突—如果A和Base和B都不一样怎么办？只能手动合并（<strong>自己的代码就出现了这个问题）</strong><br>
-所以合并会产生冲突，在合并时，代码中会出现：<br>
-<img src="/2020/12/12/git%E6%93%8D%E4%BD%9C/git%E6%93%8D%E4%BD%9C%5Cmerge%E5%86%B2%E7%AA%81.png" alt></p>
+<p>冲突—如果A和Base和B都不一样怎么办？只能手动合并（<strong>自己的代码就出现了这个问题）</strong><br />
+所以合并会产生冲突，在合并时，代码中会出现：<br />
+<img src="https://chenzhengyu.oss-cn-chengdu.aliyuncs.com/img/merge%E5%86%B2%E7%AA%81.png" alt="" /></p>
 <p>图中HEAD表示当前分支，B是合并分支，这个时候就需要选择某一个来合并。</p>
 <p><strong>递归三路合并</strong>：Git的分支往往非常繁杂，会导致合并A/B时，能找到多个A/B的共同祖先，而所谓的递归三路合并就是，对它们的共同祖先继续找共同祖先，直到找到唯一一个共同祖先为止，这样可以减少冲突的概率。</p>
-<p><strong>git rebase [xxx]</strong>  表示将当前分支提交到指定xxx分支上。<strong>(注意是当前分支到xxx上，不是xxx到当前分支上)</strong><br>
+<p><strong>git rebase [xxx]</strong>  表示将当前分支提交到指定xxx分支上。<strong>(注意是当前分支到xxx上，不是xxx到当前分支上)</strong><br />
 例子：</p>
 <blockquote>
-<p><code>git rebase master</code>：<br>
-1.将当前分支从最近祖先节点开始的所有提交连接到master后。<br>
-2.出现冲突，手动解决冲突，<br>
-3.解决后<code>git add .</code><br>
+<p><code>git rebase master</code>：<br />
+1.将当前分支从最近祖先节点开始的所有提交连接到master后。<br />
+2.出现冲突，手动解决冲突，<br />
+3.解决后<code>git add .</code><br />
 4.再<code>git rebase --continue</code> ，所有提交的commitId改变了。同时，旧分支上的节点因为没有了引用则会被丢弃，HEAD指向最新的提交。</p>
 </blockquote>
 
